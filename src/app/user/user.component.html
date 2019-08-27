@@ -1,0 +1,14 @@
+<div class="row mt-5">
+        <div class="col-md-4 mb-3" *ngFor="let entreprise of users">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">{{entreprise.name}}</h5>
+                    <p class="card-text"> {{entreprise.description}} </p>
+                    <a href="#" class="btn btn-primary">nos biens</a>
+                </div>
+                <div class="card-footer text-muted">
+                    {{entreprise.date | date:'shortDate'}}
+                </div>
+            </div>
+        </div>
+    </div>
