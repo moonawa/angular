@@ -1,21 +1,26 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpErrorResponse, HttpHeaders  } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable(/* {
   providedIn: 'root'
 } */)
 export class EntrepriseService {
 
-  private _entrepriseUrl = "http://localhost:8000/api/list/entreprises";
-  private _userUrl = "http://localhost:8000/api/liste/entreprises";
+  private _entrepriseUrl: string  = "http://localhost:8000/api/liste";
+  private _userUrl = "http://localhost:8000/api/list";
   
+  constructor(private httpClient: HttpClient) {}
 
-  constructor(private http: HttpClient) {}
-
-  getEntreprise(){
-    return this.http.get<any>(this._entrepriseUrl)
+  private headers= new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
+  
+  getEntreprise(): Observable<any>{
+    return this.httpClient.get<any>(this._entrepriseUrl, {headers:this.headers})
   }
   getUser(){
-    return this.http.get<any>(this._userUrl)
+    return this.httpClient.get<any>(this._userUrl)
+  }
+  errorHandler(error: HttpErrorResponse){
+    return Observable.throw(error.message || "Server Error");
   }
 }

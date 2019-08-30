@@ -8,7 +8,6 @@ import { EntrepriseService } from '../entreprise.service';
 })
 export class EntrepriseComponent implements OnInit {
 
-
   entreprise = []
   constructor(private _entrepriseService: EntrepriseService ) { }
 

@@ -1,14 +1,38 @@
-<div class="row mt-5">
-    <div class="col-md-4 mb-3" *ngFor="let entreprise of entreprises">
-        <div class="card text-center">
-            <div class="card-body">
-                <h5 class="card-title">{{entreprise.name}}</h5>
-                <p class="card-text"> {{entreprise.description}} </p>
-                <a href="#" class="btn btn-primary">nos biens</a>
+
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Liste des partenaires</h6>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable">
+                <thead>
+                  <tr>
+                    <th>Raison Social</th>
+                    <th>Ninea</th>
+                    <th>Adresse</th>
+                    <th>Solde</th>              
+                    <th>Email</th>
+                    <th>Telephone</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let entreprises of entreprise">
+                    <tr>
+                      <td>{{entreprises.RaisonSociale}}</td>
+                      <td>{{entreprises.Ninea}}</td>
+                      <td>{{entreprises.Adresse}}</td>
+                      <td>{{entreprises.Solde}}</td>                 
+                      <td>{{entreprises.email}}</td>
+                      <td>{{entreprises.telephone}}</td>                  
+                    </tr>
+                  </tbody>           
+              </table>
             </div>
-            <div class="card-footer text-muted">
-                {{entreprise.date | date:'shortDate'}}
-            </div>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
+      <router-outlet></router-outlet>  
