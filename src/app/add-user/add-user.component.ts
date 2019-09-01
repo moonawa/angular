@@ -8,14 +8,18 @@ import { UserService } from '../user.service';
   styleUrls: ['./add-user.component.css']
 })
 export class AddUserComponent implements OnInit {
+  
+ // profils;
+  user={};
   imageUrl : string ="assets/img/MOON.png";
   fileToUpload : File = null;
 
-  adduserData = {}
+ 
   constructor(private _user: UserService,
     private _router: Router) {}
 
   ngOnInit() {
+    
   }
 
   handleFileInput(file : FileList){
@@ -28,4 +32,21 @@ export class AddUserComponent implements OnInit {
     }
     reader.readAsDataURL(this.fileToUpload); 
   }
+  onsubmit (data:any){
+    console.log(data);
+    console.log(this.fileToUpload);
+     this._user.addUser(data, this.fileToUpload)
+     .subscribe(
+       data=>{
+         console.log('done');
+         
+        //  this.utilisateur=null;
+        //  this.fileToUpload=null;
+         //this.router.navigate(['/user'])
+
+       }, err=>{
+        console.log(err);
+       }
+     )
+}
 }

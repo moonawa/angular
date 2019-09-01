@@ -1,18 +1,38 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
+  
   constructor(private http: HttpClient,
     private _router: Router) { }
-    private _Url = "http://localhost:8000/connexion";
+    private _Url : string = "http://localhost:8000/api/list";
 
-    addUser(user){
+    
+    getAllProfil() : Observable<any[]>  {
+      return  this.http.get<any>(this._Url);
+   }
+      
+   addUser(user, fileToUpload){
+    const headers= new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
 
-      return this.http.post<any>(this._Url, user)
-    }
+     const host = "http://localhost:8000/api/register";
+   
+     const formData: FormData= new FormData();
+     formData.append('username', user.username);
+     formData.append('plainPassword', user.plainPassword);
+     formData.append('Entreprise', user.Entreprise);
+     formData.append('Nom', user.Nom);
+     formData.append('Email', user.Email);
+     formData.append('Telephone', user.Telephone);
+     formData.append('Nci', user.Nci);
+     formData.append('Profil', user.Profil);
+     formData.append('imageName', fileToUpload, fileToUpload.name);
+     return this.http.post(host, formData, {headers : headers});
+   }
 }

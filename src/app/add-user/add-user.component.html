@@ -4,26 +4,22 @@
             <div class="card-header">
                 <h3 class="mb-0">Enregistrez un user</h3>
             </div>
-            <form #imageForm=ngForm>                  
+            <form #imageForm=ngForm (ngSubmit)="onsubmit(imageForm.value)">                  
                     <div class="form-group">                        
                         <label for="Entreprise">Entreprise</label>
-                        <input type="text" #Entreprise ngModel name="Entreprise" id="Entreprise">
+                        <input type="number" #Entreprise ngModel name="Entreprise" id="Entreprise">
                     </div>
                     <div class="form-group">                      
                         <label for="Profil">Profil</label>    
-                        <input type="text" #Profil ngModel name="Profil" id="Profil">
+                        <input type="number" #Profil ngModel name="Profil" id="Profil">
                     </div>
                     <div class="form-group">             
                         <label for="username">username</label>
                         <input type="text" #username ngModel name="username" id="username">
                     </div>
-                    <div class="form-group">                        
-                        <label for="roles">roles</label>      
-                        <input type="text" #roles ngModel name="roles" id="roles">
-                    </div>
                     <div class="form-group">                       
                         <label for="Password">Password</label>
-                        <input type="text" #Password ngModel name="password" id="Password">
+                        <input type="password" #Password ngModel name="password" id="Password">
                     </div>
                     <div class="form-group">                       
                         <label for="Nom">Nom</label>          
@@ -39,18 +35,14 @@
                     </div>
                     <div class="form-group">                       
                         <label for="Telephone">Telephone</label>
-                        <input type="text" #Telephone ngModel name="Telephone" id="Telephone">
-                    </div>                  
-                    <div class="form-group">                       
-                        <label for="Compte">Compte</label>   
-                        <input type="text" #Compte ngModel name="Compte" id="Compte">
-                    </div> 
+                        <input type="number" #Telephone ngModel name="Telephone" id="Telephone">
+                    </div>  
                     <div class="form-group">                                                      
-                <img [src]="imageUrl" style="width: 250px; height: 200px">
-                <input type="file" #Image accept="image/*" (change)= "handleFileInput($event.target.files)" >
-            </div> 
+                        <img [src]="imageUrl" style="width: 250px; height: 200px">
+                        <input type="file" #Image accept="image/*" (change)= "handleFileInput($event.target.files)" >
+                    </div> 
                 <div class="row">
-                <button type="submit" class="btn-large btn-submit">Submit</button>
+                    <button type="submit" class="btn-large btn-submit">Submit</button>
                 </div>
             </form>
         </div>

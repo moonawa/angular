@@ -1,1 +1,38 @@
-<p>add-entreprise works!</p>
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card rounded-0">
+            <div class="card-header">
+                <h3 class="mb-0"> Register </h3>
+            </div>
+            <div >
+                <form #moonForm=ngForm (ngSubmit)="onsubmit(moonForm.value)">
+                    <div class="form-group">
+                        <label for="rs">Raison Sociale</label>
+                        <input type="text" #RaisonSociale ngModel name="rs" id="rs">
+                    </div>
+                    <div class="form-group">
+                            <label for="ninea">Ninea</label>
+                            <input type="text" #ninea ngModel name="ninea" id="ninea">
+                    </div>
+                    <div class="form-group">
+                        <label for="adresse">Adresse</label>
+                        <input type="text" #adresse ngModel name="adresse" id="adresse">
+                    </div>
+                    <div class="form-group">
+                        <label for="solde">Solde</label>
+                        <input type="text" #solde ngModel name="solde" id="solde">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" #email ngModel name="email" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="tel">Telephone</label>
+                        <input type="text" #telephone ngModel name="telephone" id="telephone">
+                    </div>
+                    <button type="submit" class="btn-large btn-submit">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
