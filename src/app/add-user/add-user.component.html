@@ -7,47 +7,47 @@
             <form #imageForm=ngForm>                  
                     <div class="form-group">                        
                         <label for="Entreprise">Entreprise</label>
-                        <input [(ngModel)]="adduserData.Entreprise" type="text" #Entreprise ngModel name="Entreprise" id="Entreprise">
+                        <input type="text" #Entreprise ngModel name="Entreprise" id="Entreprise">
                     </div>
                     <div class="form-group">                      
                         <label for="Profil">Profil</label>    
-                        <input [(ngModel)]="adduserData.Profil" type="text" #Profil ngModel name="Profil" id="Profil">
+                        <input type="text" #Profil ngModel name="Profil" id="Profil">
                     </div>
                     <div class="form-group">             
                         <label for="username">username</label>
-                        <input [(ngModel)]="adduserData.username" type="text" #username ngModel name="username" id="username">
+                        <input type="text" #username ngModel name="username" id="username">
                     </div>
                     <div class="form-group">                        
                         <label for="roles">roles</label>      
-                        <input [(ngModel)]="adduserData.roles" type="text" #roles ngModel name="roles" id="roles">
+                        <input type="text" #roles ngModel name="roles" id="roles">
                     </div>
                     <div class="form-group">                       
                         <label for="Password">Password</label>
-                        <input [(ngModel)]="adduserData.password " type="text" #Password ngModel name="Password" id="Password">
+                        <input type="text" #Password ngModel name="password" id="Password">
                     </div>
                     <div class="form-group">                       
                         <label for="Nom">Nom</label>          
-                        <input [(ngModel)]="adduserData.Nom " type="text" #Nom ngModel name="Nom" id="Nom">
+                        <input type="text" #Nom ngModel name="Nom" id="Nom">
                     </div>
                     <div class="form-group">                      
                         <label for="Email">Email</label>    
-                        <input [(ngModel)]="adduserData.Email" type="text" #Email ngModel name="Email" id="Email">
+                        <input type="text" #Email ngModel name="Email" id="Email">
                     </div>
                     <div class="form-group">                       
                         <label for="Nci">Nci</label>          
-                        <input [(ngModel)]="adduserData.Nci" type="text" #Nci ngModel name="Nci" id="Nci">
+                        <input type="text" #Nci ngModel name="Nci" id="Nci">
                     </div>
                     <div class="form-group">                       
                         <label for="Telephone">Telephone</label>
-                        <input [(ngModel)]="adduserData.imageFile" type="text" #Telephone ngModel name="Telephone" id="Telephone">
+                        <input type="text" #Telephone ngModel name="Telephone" id="Telephone">
                     </div>                  
                     <div class="form-group">                       
                         <label for="Compte">Compte</label>   
-                        <input [(ngModel)]="adduserData.compte" type="text" #Compte ngModel name="Compte" id="Compte">
+                        <input type="text" #Compte ngModel name="Compte" id="Compte">
                     </div> 
                     <div class="form-group">                                                      
                 <img [src]="imageUrl" style="width: 250px; height: 200px">
-                <input [(ngModel)]="add-userData.imageFile" type="file" #Image accept="image/*" (change)= "handleFileInput($event.target.files)" >
+                <input type="file" #Image accept="image/*" (change)= "handleFileInput($event.target.files)" >
             </div> 
                 <div class="row">
                 <button type="submit" class="btn-large btn-submit">Submit</button>

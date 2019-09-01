@@ -5,6 +5,7 @@ import { UserComponent} from './user/user.component';
 import { LoginComponent} from './login/login.component';
 import { RegisterComponent} from './register/register.component';
 import { AuthGuard } from './auth.guard';
+import { AddUserComponent } from './add-user/add-user.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'entreprise',
     component: EntrepriseComponent
+  },
+  {
+    path: 'add-user',
+    component: AddUserComponent
   },
   {
     path: 'user',
