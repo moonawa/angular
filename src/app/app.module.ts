@@ -19,6 +19,7 @@ import { UserComponent } from './user/user.component';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { from } from 'rxjs';
 import { ListEntrepriseComponent } from './list-entreprise/list-entreprise.component';
+import { AddUserComponent } from './add-user/add-user.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ListEntrepriseComponent } from './list-entreprise/list-entreprise.compo
     LoginComponent,
     RegisterComponent,
     UserComponent,
-    ListEntrepriseComponent
+    ListEntrepriseComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,

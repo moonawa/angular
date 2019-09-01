@@ -6,15 +6,19 @@ import { Router } from '@angular/router';
 
 export class AuthService {
   
-  private _registerUrl = "http://localhost:8000/api/register";
+  private _registerUrl = "http://localhost:8000/api/form/entreprise";
   private _loginUrl = "http://localhost:8000/api/connexion";
+  private _Url = "http://localhost:8000/connexion";
   
   constructor(private http: HttpClient,
     private _router: Router) {}
     
     registerUser(user){
 
-      return this.http.post<any>(this._registerUrl, user)
+      return this.http.post<any>(this._Url, user)
+    }
+    registerEntreprise(entreprise){
+      return this.http.post<any>(this._registerUrl, entreprise)
     }
 
     loginUser(user){

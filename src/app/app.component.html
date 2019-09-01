@@ -1,9 +1,10 @@
+<app-add-user></app-add-user>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">MOONAWA</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav">
     <span class="navbar-toggler-icon"></span>
   </button>
-
+ 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
@@ -13,15 +14,17 @@
           <a class="nav-link" routerLink="/user" routerLinkActive="active">User</a>
         </li>
     </ul>
+
     <ul class="navbar-nav">
-        <a class="nav-link"  routerLink="/login" routerLinkActive="active">Se connecter</a>
-        <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
-        <a class="navv-link" >Logout</a>
-
+        <li class="nav-item"><a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/add-user" routerLinkActive="active">Add-User</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/Logout" routerLinkActive="active">Logout</a></li>
       </ul>
-
   </div>
+
 </nav>
 <div class="container">
   <router-outlet></router-outlet>
 </div>
+
