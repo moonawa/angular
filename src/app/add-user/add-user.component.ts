@@ -11,7 +11,7 @@ export class AddUserComponent implements OnInit {
   
  // profils;
   user={};
-  imageUrl : string ="assets/img/MOON.png";
+  imageUrl : string ="assets/awaimg/MOON.png";
   fileToUpload : File = null;
 
  

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EntrepriseService } from '../entreprise.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-user',
@@ -10,21 +11,15 @@ import { Router } from '@angular/router';
 })
 export class UserComponent implements OnInit {
 
-  user = []
-  constructor(private _entrepriseService: EntrepriseService,
+  utilisateur = []
+  constructor(private _userService: UserService,
     private _router: Router) { }
 
   ngOnInit() {
-    this._entrepriseService.getUser()
+    this._userService.getUser()
     .subscribe(
-      res => this.user = res,
-      err =>{
-        if(err instanceof HttpErrorResponse){
-          if(err.status === 401){
-            this._router.navigate(['/login'])
-          }
-      }
-    }
+      res => this.utilisateur= res,
+      err => console.log(err)
     )
   }
 

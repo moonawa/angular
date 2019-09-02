@@ -12,14 +12,18 @@ import { DeleteEntrepriseComponent } from './delete-entreprise/delete-entreprise
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './auth.service';
 import { EntrepriseService } from './entreprise.service';
+import { UserComponent} from './user/user.component';
 
 import { AuthGuard} from './auth.guard';
 import { RegisterComponent } from './register/register.component';
-import { UserComponent } from './user/user.component';
+
 import { TokenInterceptorService } from './token-interceptor.service';
 import { from } from 'rxjs';
 import { ListEntrepriseComponent } from './list-entreprise/list-entreprise.component';
 import { AddUserComponent } from './add-user/add-user.component';
+import { UserService } from './user.service';
+import { TransactionComponent } from './transaction/transaction.component';
+import { DepotComponent } from './depot/depot.component';
 
 
 @NgModule({
@@ -30,10 +34,13 @@ import { AddUserComponent } from './add-user/add-user.component';
     EditEntrepriseComponent,
     DeleteEntrepriseComponent,
     LoginComponent,
-    RegisterComponent,
     UserComponent,
+    RegisterComponent,
+   
     ListEntrepriseComponent,
-    AddUserComponent
+    AddUserComponent,
+    TransactionComponent,
+    DepotComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +48,7 @@ import { AddUserComponent } from './add-user/add-user.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [AuthService, EntrepriseService
+  providers: [AuthService, EntrepriseService, UserService
   ],
   bootstrap: [AppComponent]
 })

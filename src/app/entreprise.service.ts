@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 } */)
 export class EntrepriseService {
+  private headers= new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
 
   private _entrepriseUrl: string  = "http://localhost:8000/api/liste";
   //private _addUrl = "http://localhost:8000/api/form/entreprise";
@@ -34,7 +35,19 @@ export class EntrepriseService {
      formData.append('email', entreprise.email);
      formData.append('telephone', entreprise.telephone);
      
-     return this.http.post(host, formData, {headers : headers});
+     return this.http.post(host, formData, {headers:headers});
+   }
+
+   addDepot(depot){
+    const headers= new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
+
+    const host = "http://localhost:8000/api/depot/entreprise";
+  
+    const formData: FormData= new FormData();
+    formData.append('RaisonSociale', depot.Montant);
+    formData.append('Entreprise', depot.Entreprise);
+    return this.http.post(host, formData, {headers:headers});
+
    }
 
  /*  errorHandler(error: HttpErrorResponse){

@@ -6,6 +6,9 @@ import { LoginComponent} from './login/login.component';
 import { RegisterComponent} from './register/register.component';
 import { AuthGuard } from './auth.guard';
 import { AddUserComponent } from './add-user/add-user.component';
+import { AddEntrepriseComponent } from './add-entreprise/add-entreprise.component';
+import { TransactionComponent } from './transaction/transaction.component';
+import { DepotComponent } from './depot/depot.component';
 
 const routes: Routes = [
   {
@@ -18,8 +21,16 @@ const routes: Routes = [
     component: EntrepriseComponent
   },
   {
+    path: 'transaction',
+    component: TransactionComponent
+  },
+  {
     path: 'add-user',
     component: AddUserComponent
+  },
+  {
+    path: 'add-entreprise',
+    component: AddEntrepriseComponent
   },
   {
     path: 'user',
@@ -29,6 +40,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'depot',
+    component: DepotComponent
   },
   {
     path: 'register',

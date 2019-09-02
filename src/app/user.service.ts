@@ -3,11 +3,14 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
-@Injectable({
+@Injectable(/* {
   providedIn: 'root'
-})
+} */)
 export class UserService {
+  private headers= new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
 
+  private _userUrl: string  = "http://localhost:8000/api/list";
+  
   
   constructor(private http: HttpClient,
     private _router: Router) { }
@@ -16,6 +19,10 @@ export class UserService {
     
     getAllProfil() : Observable<any[]>  {
       return  this.http.get<any>(this._Url);
+   }
+   getUser(){
+    return this.http.get<any>(this._userUrl, {headers:this.headers})
+
    }
       
    addUser(user, fileToUpload){
@@ -35,4 +42,5 @@ export class UserService {
      formData.append('imageName', fileToUpload, fileToUpload.name);
      return this.http.post(host, formData, {headers : headers});
    }
+   
 }
