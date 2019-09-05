@@ -4,45 +4,94 @@
             <div class="card-header">
                 <h3 class="mb-0">Enregistrez un user</h3>
             </div>
-            <form #imageForm=ngForm (ngSubmit)="onsubmit(imageForm.value)">                  
+            <form [formGroup]="user" (ngSubmit)="onsubmit(user.value)">                  
                     <div class="form-group">                        
                         <label for="Entreprise">Entreprise</label>
-                        <input type="number" #Entreprise ngModel name="Entreprise" id="Entreprise">
+                        <input type="number" name="Entreprise"  class="form-control" id="Entreprise">
+                        <div *ngFor="let error of errorMessage.Entreprise">
+                            <div *ngIf="user.get('Entreprise').hasError(error.type) &&
+                             (user.get('Entreprise').dirty || user.get('Entreprise').touched)">
+                                {{error.message}}
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">                      
                         <label for="Profil">Profil</label>    
-                        <input type="number" #Profil ngModel name="Profil" id="Profil">
+                        <input type="number" name="Profil" class="form-control"  id="Profil">
                     </div>
+                    <div *ngFor="let error of errorMessage.Profil">
+                <div *ngIf="user.get('Profil').hasError(error.type) &&
+                 (user.get('Profil').dirty || user.get('Profil').touched)">
+                    {{error.message}}
+                </div>
+            </div>
                     <div class="form-group">             
                         <label for="username">username</label>
-                        <input type="text" #username ngModel name="username" id="username">
+                        <input type="text" formControlName = "username"  name="username" class="form-control"  id="username">
                     </div>
+                    <div *ngFor="let error of errorMessage.username">
+                <div *ngIf="user.get('username').hasError(error.type) &&
+                 (user.get('username').dirty || user.get('username').touched)">
+                    {{error.message}}
+                </div>
+            </div>
                     <div class="form-group">                       
                         <label for="Password">Password</label>
-                        <input type="password" #Password ngModel name="password" id="Password">
+                        <input type="password" name="password"  class="form-control" id="Password">
                     </div>
+                    <div *ngFor="let error of errorMessage.Password">
+                <div *ngIf="user.get('Password').hasError(error.type) &&
+                 (user.get('Password').dirty || user.get('Password').touched)">
+                    {{error.message}}
+                </div>
+            </div>
                     <div class="form-group">                       
                         <label for="Nom">Nom</label>          
-                        <input type="text" #Nom ngModel name="Nom" id="Nom">
+                        <input type="text" name="Nom" class="form-control"  id="Nom">
                     </div>
+                    <div *ngFor="let error of errorMessage.Nom">
+                <div *ngIf="user.get('Nom').hasError(error.type) &&
+                 (user.get('Nom').dirty || user.get('Nom').touched)">
+                    {{error.message}}
+                </div>
+            </div>
                     <div class="form-group">                      
                         <label for="Email">Email</label>    
-                        <input type="text" #Email ngModel name="Email" id="Email">
+                        <input type="text" name="Email"  class="form-control" id="Email">
                     </div>
+                    <div *ngFor="let error of errorMessage.Email">
+                <div *ngIf="user.get('Email').hasError(error.type) &&
+                 (user.get('Email').dirty || utilisateur.get('Email').touched)">
+                    {{error.message}}
+                </div>
+            </div>
                     <div class="form-group">                       
                         <label for="Nci">Nci</label>          
-                        <input type="text" #Nci ngModel name="Nci" id="Nci">
+                        <input type="text" name="Nci"  class="form-control" id="Nci">
                     </div>
+                    <div *ngFor="let error of errorMessage.Nci">
+                <div *ngIf="user.get('Nci').hasError(error.type) &&
+                 (user.get('Nci').dirty || user.get('Nci').touched)">
+                    {{error.message}}
+                </div>
+            </div>
                     <div class="form-group">                       
                         <label for="Telephone">Telephone</label>
-                        <input type="number" #Telephone ngModel name="Telephone" id="Telephone">
+                        <input type="number" name="Telephone" class="form-control"  id="Telephone">
                     </div>  
+                    <div *ngFor="let error of errorMessage.Telephone">
+                <div *ngIf="user.get('Telephone').hasError(error.type) &&
+                 (user.get('Telephone').dirty || user.get('Telephone').touched)">
+                    {{error.message}}
+                </div>
+            </div>
                     <div class="form-group">                                                      
                         <img [src]="imageUrl" style="width: 250px; height: 200px">
-                        <input type="file" #Image accept="image/*" (change)= "handleFileInput($event.target.files)" >
+                        <input type="file"  accept="image/*" (change)= "handleFileInput($event.target.files)" >
                     </div> 
+                    
                 <div class="row">
-                    <button type="submit" class="btn-large btn-submit">Submit</button>
+                    <button type="submit" class="btn-large btn-submit" [disabled]="!user.valid">Submit</button>
                 </div>
             </form>
         </div>

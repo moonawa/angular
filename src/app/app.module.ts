@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +25,7 @@ import { UserService } from './user.service';
 import { TransactionComponent } from './transaction/transaction.component';
 import { DepotComponent } from './depot/depot.component';
 import { FormsComponent } from './forms/forms.component';
+import { RetraitComponent } from './retrait/retrait.component';
 
 
 @NgModule({
@@ -42,13 +43,15 @@ import { FormsComponent } from './forms/forms.component';
     AddUserComponent,
     TransactionComponent,
     DepotComponent,
-    FormsComponent
+    FormsComponent,
+    RetraitComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService, EntrepriseService, UserService
   ],
