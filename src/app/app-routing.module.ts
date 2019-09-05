@@ -9,6 +9,7 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { AddEntrepriseComponent } from './add-entreprise/add-entreprise.component';
 import { TransactionComponent } from './transaction/transaction.component';
 import { DepotComponent } from './depot/depot.component';
+import { FormsComponent } from './forms/forms.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'entreprise',
     component: EntrepriseComponent
+  },
+  {
+    path: 'forms',
+    component: FormsComponent
   },
   {
     path: 'transaction',

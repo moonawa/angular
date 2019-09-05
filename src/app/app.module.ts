@@ -24,6 +24,7 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { UserService } from './user.service';
 import { TransactionComponent } from './transaction/transaction.component';
 import { DepotComponent } from './depot/depot.component';
+import { FormsComponent } from './forms/forms.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { DepotComponent } from './depot/depot.component';
     ListEntrepriseComponent,
     AddUserComponent,
     TransactionComponent,
-    DepotComponent
+    DepotComponent,
+    FormsComponent
   ],
   imports: [
     BrowserModule,
