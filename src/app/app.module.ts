@@ -27,7 +27,6 @@ import { DepotComponent } from './depot/depot.component';
 import { FormsComponent } from './forms/forms.component';
 import { RetraitComponent } from './retrait/retrait.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

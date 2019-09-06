@@ -56,11 +56,14 @@ export class AddUserComponent implements OnInit {
     /^7[0678]([0-9][0-9][0-9][0-9][0-9][0-9][0-9])/)]),
   Nom: new FormControl ('', [Validators.required, Validators.minLength(3),
     Validators.pattern(/^([a-zA-Z \u00C0-\u00FF]+['-]?[a-zA-Z\u00C0-\u00FF]+){1,30}$/)]),
-    Password: new FormControl ('', [Validators.required, Validators.minLength(2)]),
-      Profil: new FormControl ('', Validators.required),
+    plainPassword: new FormControl ('', [Validators.required, Validators.minLength(2)]),
+      Profil: new FormControl ('', [Validators.required, Validators.minLength(9),Validators.maxLength(9),Validators.pattern(
+        /^7[0678]([0-9][0-9][0-9][0-9][0-9][0-9][0-9])/)]),
       Email: new FormControl ('', Validators.required),
       Nci: new FormControl ('', Validators.required),
-      Entreprise: new FormControl ('', Validators.required)
+      Entreprise: new FormControl ('', [Validators.required, Validators.minLength(9),Validators.maxLength(9),Validators.pattern(
+
+     /^7[0678]([0-9][0-9][0-9][0-9][0-9][0-9][0-9])/)])
 
   })
 
@@ -79,7 +82,7 @@ export class AddUserComponent implements OnInit {
      {type:'pattern', message:'Ecrivez correctement le nom'}
 
     ],
-    'Password':[
+    'plainPassword':[
      {type:'required', message:'Champ password obligatoire '}
     ],
     'Profil':[
@@ -95,7 +98,5 @@ export class AddUserComponent implements OnInit {
      'Entreprise':[
       {type:'required', message:'Champ entreprise obligatoire '}
      ]
-
-
   }
 }

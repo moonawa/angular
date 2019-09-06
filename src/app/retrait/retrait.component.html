@@ -1,1 +1,24 @@
-<p>retrait works!</p>
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card rounded-0">
+            <div class="card-header">
+                <h3 class="mb-0">Transaction</h3>
+            </div>
+            <div >
+                <form #transForm=ngForm (ngSubmit)="onsubmit(transForm.value)">                      
+                    <div class="form-group">
+                        <label for="Code">Code</label>
+                        <input type="text" #Code ngModel name="Code" id="Code">
+                    </div>
+                    <div class="form-group">
+                        <label for="NciRecepteur">NciRecepteur</label>
+                        <input type="text" #NciRecepteur ngModel name="NciRecepteur" id="NciRecepteur">
+                    </div>
+                    <button type="submit" class="btn-large btn-submit">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+                  

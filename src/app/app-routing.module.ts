@@ -10,6 +10,7 @@ import { AddEntrepriseComponent } from './add-entreprise/add-entreprise.componen
 import { TransactionComponent } from './transaction/transaction.component';
 import { DepotComponent } from './depot/depot.component';
 import { FormsComponent } from './forms/forms.component';
+import { RetraitComponent } from './retrait/retrait.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'entreprise',
     component: EntrepriseComponent
+  },
+  {
+    path: 'retrait',
+    component: RetraitComponent
   },
   {
     path: 'forms',

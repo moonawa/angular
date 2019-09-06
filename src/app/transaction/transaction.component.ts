@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-transaction',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransactionComponent implements OnInit {
 
-  constructor() { }
+  transacton= {};
+  constructor(private _transaction: UserService,
+    private _router: Router) { }
 
   ngOnInit() {
   }
+
+  onsubmit (data:any){
+    console.log(data);
+    //console.log(this.fileToUpload);
+     this._transaction.envoi(data)
+     .subscribe(
+       data=>{
+         console.log('done');
+         
+        //  this.utilisateur=null;
+        //  this.fileToUpload=null;
+         //this.router.navigate(['/user'])
+
+       }, err=>{
+        console.log(err);
+       }
+     )
+
+}
 
 }
