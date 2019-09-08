@@ -1,0 +1,120 @@
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card rounded-0">
+            <div class="card-header">
+                <h3 class="mb-0">Enregistrez un partenaire, un super-admin et compte</h3>
+            </div>
+            <form [formGroup]="super" (ngSubmit)="onsubmit(super.value)">                  
+                    <div class="form-group">                        
+                        <label for="RaisonSociale">RaisonSociale</label>
+                        <input type="text" name="RaisonSociale"  formControlName="RaisonSociale"  class="form-control" id="RaisonSociale">
+                        <div *ngFor="let error of errorMessage.RaisonSociale">
+                            <div *ngIf="super.get('RaisonSociale').hasError(error.type) &&
+                             (super.get('RaisonSociale').dirty || super.get('RaisonSociale').touched)">
+                                {{error.message}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">                      
+                        <label for="Ninea">Ninea</label>    
+                        <input type="text" name="Ninea"  formControlName="Ninea" class="form-control"  id="Ninea">
+                    </div>
+                    <div *ngFor="let error of errorMessage.Ninea">
+                <div *ngIf="super.get('Ninea').hasError(error.type) &&
+                 (super.get('Ninea').dirty || super.get('Ninea').touched)">
+                    {{error.message}}
+                </div>
+            </div>
+                    <div class="form-group">             
+                        <label for="Adresse">Adresse</label>
+                        <input type="text" formControlName = "Adresse"  name="Adresse" class="form-control"  id="Adresse">
+                    </div>
+                    <div *ngFor="let error of errorMessage.Adresse">
+                <div *ngIf="super.get('Adresse').hasError(error.type) &&
+                 (super.get('Adresse').dirty || super.get('Adresse').touched)">
+                    {{error.message}}
+                </div>
+            </div>
+                    <div class="form-group">                       
+                        <label for="plainPassword">Password</label>
+                        <input type="password" name="plainPassword"  formControlName="plainPassword"  class="form-control" id="plainPassword">
+                    </div>
+                    <div *ngFor="let error of errorMessage.plainPassword">
+                <div *ngIf="super.get('plainPassword').hasError(error.type) &&
+                 (super.get('plainPassword').dirty || super.get('plainPassword').touched)">
+                    {{error.message}}
+                </div>
+            </div>
+            <div class="form-group">                       
+                <label for="username">username</label>          
+                <input type="text" name="username"  formControlName="username" class="form-control"  id="username">
+            </div>
+            <div *ngFor="let error of errorMessage.username">
+        <div *ngIf="super.get('username').hasError(error.type) &&
+         (super.get('username').dirty || super.get('username').touched)">
+            {{error.message}}
+        </div>
+    </div>
+                    <div class="form-group">                       
+                        <label for="Nom">Nom</label>          
+                        <input type="text" name="Nom"  formControlName="Nom" class="form-control"  id="Nom">
+                    </div>
+                    <div *ngFor="let error of errorMessage.Nom">
+                <div *ngIf="super.get('Nom').hasError(error.type) &&
+                 (super.get('Nom').dirty || super.get('Nom').touched)">
+                    {{error.message}}
+                </div>
+            </div>
+                    <div class="form-group">                      
+                        <label for="Email">Email</label>    
+                        <input type="text" name="Email"   formControlName="Email" class="form-control" id="Email">
+                    </div>
+                    <div *ngFor="let error of errorMessage.Email">
+                <div *ngIf="super.get('Email').hasError(error.type) &&
+                 (super.get('Email').dirty || super.get('Email').touched)">
+                    {{error.message}}
+                </div>
+            </div>
+                    <div class="form-group">                       
+                        <label for="Nci">Nci</label>          
+                        <input type="text" name="Nci"   formControlName="Nci" class="form-control" id="Nci">
+                    </div>
+                    <div *ngFor="let error of errorMessage.Nci">
+                <div *ngIf="super.get('Nci').hasError(error.type) &&
+                 (super.get('Nci').dirty || super.get('Nci').touched)">
+                    {{error.message}}
+                </div>
+            </div>
+                    <div class="form-group">                       
+                        <label for="Telephone">Telephone</label>
+                        <input type="number" name="Telephone"  formControlName="Telephone" class="form-control"  id="Telephone">
+                    </div>  
+                    <div *ngFor="let error of errorMessage.Telephone">
+                <div *ngIf="super.get('Telephone').hasError(error.type) &&
+                 (super.get('Telephone').dirty || super.get('Telephone').touched)">
+                    {{error.message}}
+                </div>
+            </div>
+            <div class="form-group">                       
+                <label for="Solde">Solde</label>
+                <input type="number" name="Solde"  formControlName="Solde" class="form-control"  id="Solde">
+            </div>  
+            <div *ngFor="let error of errorMessage.Solde">
+                <div *ngIf="super.get('Solde').hasError(error.type) &&
+                    (super.get('Solde').dirty || super.get('Solde').touched)">
+                        {{error.message}}
+                </div>
+            </div>
+                <div class="form-group">                                                      
+                    <img [src]="imageUrl" style="width: 250px; height: 200px">
+                    <input type="file" #image accept="image/*" (change)= "handleFileInput($event.target.files)" >
+                </div>                    
+                    <div class="form-group row col-6 col-md-push-4 offset-md-3">
+                        <div class="col">
+                        <button type="submit" name="valider" class="btn btn-primary" [disabled]="super.valid" >AJOUTER</button>
+                        </div>
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>

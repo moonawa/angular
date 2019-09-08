@@ -66,5 +66,25 @@ export class UserService {
      formData.append('NciRecepteur', retrait.NciRecepteur);
      return this.http.post(host, formData, {headers : headers});
    }
+
+   addSuper(supera, fileToUpload){
+    const headers= new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
+    const host = "http://localhost:8000/api/ajout";
+
+    const formData: FormData= new FormData();
+     formData.append('RaisonSociale', supera.RaisonSociale);
+     formData.append('Ninea', supera.Ninea);
+     formData.append('Adresse', supera.Adresse);
+     formData.append('plainPassword', supera.plainPassword);
+     formData.append('username', supera.username);
+     formData.append('Nom', supera.Nom);
+     formData.append('Email', supera.Email);
+     formData.append('Nci', supera.Nci);
+     formData.append('Telephone', supera.Telephone);
+     formData.append('Solde', supera.Solde);
+     formData.append('imageName', fileToUpload, fileToUpload.name);
+     return this.http.post(host, formData, {headers : headers});
+
+   }
    
 }
