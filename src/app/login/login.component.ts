@@ -18,16 +18,34 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  loginUser(){
-    this._auth.loginUser(this.loginUserData)
+  loginUser(user){
+    this._auth.loginUser(user)
     .subscribe(
       res => {
         console.log(res)
-        localStorage.setItem('token', res.token)
-        this._router.navigate(['/special'])
+        //localStorage.setItem('token', res.token)
+        let jwt = res.body['token'];
+        this._auth.saveToken(jwt);
+        
+        this._router.navigate(['/add-user'])
       },
-      err =>console.log(err)
+      err =>{console.log(err)}
     )
-  }   
+  }  
+  
+  
+  isSuper(){
+    return this._auth.isSuper();
+  }
+  isCaissier(){
+    return this._auth.isCaissier();
+  }
+  isUser(){
+    return this._auth.isUser();
+  }
+  isAuthenticated(){
+    return this._auth.isAuthenticated();
+  } 
+  
 
 }

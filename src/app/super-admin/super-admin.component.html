@@ -66,12 +66,12 @@
                 </div>
             </div>
                     <div class="form-group">                      
-                        <label for="Email">Email</label>    
-                        <input type="text" name="Email"   formControlName="Email" class="form-control" id="Email">
+                        <label for="email">Email</label>    
+                        <input type="text" name="email"   formControlName="email" class="form-control" id="email">
                     </div>
-                    <div *ngFor="let error of errorMessage.Email">
-                <div *ngIf="super.get('Email').hasError(error.type) &&
-                 (super.get('Email').dirty || super.get('Email').touched)">
+                    <div *ngFor="let error of errorMessage.email">
+                <div *ngIf="super.get('email').hasError(error.type) &&
+                 (super.get('email').dirty || super.get('email').touched)">
                     {{error.message}}
                 </div>
             </div>
@@ -86,12 +86,12 @@
                 </div>
             </div>
                     <div class="form-group">                       
-                        <label for="Telephone">Telephone</label>
-                        <input type="number" name="Telephone"  formControlName="Telephone" class="form-control"  id="Telephone">
+                        <label for="telephone">Telephone</label>
+                        <input type="number" name="telephone"  formControlName="telephone" class="form-control"  id="telephone">
                     </div>  
-                    <div *ngFor="let error of errorMessage.Telephone">
-                <div *ngIf="super.get('Telephone').hasError(error.type) &&
-                 (super.get('Telephone').dirty || super.get('Telephone').touched)">
+                    <div *ngFor="let error of errorMessage.telephone">
+                <div *ngIf="super.get('telephone').hasError(error.type) &&
+                 (super.get('telephone').dirty || super.get('telephone').touched)">
                     {{error.message}}
                 </div>
             </div>

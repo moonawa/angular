@@ -1,15 +1,14 @@
-import { Component } from '@angular/core';
-import { UserService } from './user.service';
-import { AuthService } from './auth.service';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-nav',
+  templateUrl: './nav.component.html',
+  styleUrls: ['./nav.component.css']
 })
-export class AppComponent {
-  title = 'my-projet';
+export class NavComponent implements OnInit {
 
+  
   constructor(private _auth: AuthService){}
 
   isSuper(){
@@ -24,4 +23,7 @@ export class AppComponent {
   isAuthenticated(){
     return this._auth.isAuthenticated();
   } 
+  ngOnInit() {
+  }
+
 }

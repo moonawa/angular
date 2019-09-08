@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import{ Router} from '@angular/router';
 import { UserService } from '../user.service';
 import { FormGroup, FormControl, Validators, FormControlName } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-add-user',
@@ -10,16 +11,32 @@ import { FormGroup, FormControl, Validators, FormControlName } from '@angular/fo
 })
 export class AddUserComponent implements OnInit {
   
- // profils;
+ Profils;
   //user={};
   imageUrl : string ="assets/awaimg/MOON.png";
   fileToUpload : File = null;
  
   constructor(private _user: UserService,
+    private _use: AuthService,
     private _router: Router) {}
 
   ngOnInit() {
-    
+    this._user.getAllProfil().subscribe(
+      res=>{
+        console.log(res);
+        this.Profils=res
+        if(this._use.getRole()=='Role_Super-admin' || this._use.getRole()=='Role_Caissier'
+        ){
+          this.Profils=[this.Profils[0],this.Profils[1]]
+        }
+        else if(this._use.getRole()=='Role_utilisateur' ){
+          this.Profils=[this.Profils[2]]
+        }
+
+      }, err=>{
+        console.log(err);
+      }
+    );
   }
 
   handleFileInput(file : FileList){
@@ -57,14 +74,11 @@ export class AddUserComponent implements OnInit {
   Nom: new FormControl ('', [Validators.required, Validators.minLength(3),
     Validators.pattern(/^([a-zA-Z \u00C0-\u00FF]+['-]?[a-zA-Z\u00C0-\u00FF]+){1,30}$/)]),
     plainPassword: new FormControl ('', [Validators.required, Validators.minLength(2)]),
-      Profil: new FormControl ('', [Validators.required, Validators.minLength(9),Validators.maxLength(9),Validators.pattern(
-        /^7[0678]([0-9][0-9][0-9][0-9][0-9][0-9][0-9])/)]),
+      Profil: new FormControl ('', Validators.required),
       Email: new FormControl ('', Validators.required),
-      Nci: new FormControl ('', Validators.required),
-      Entreprise: new FormControl ('', [Validators.required, Validators.minLength(9),Validators.maxLength(9),Validators.pattern(
+      Nci: new FormControl ('', Validators.required)
 
-     /^7[0678]([0-9][0-9][0-9][0-9][0-9][0-9][0-9])/)])
-
+    
   })
 
   errorMessage={
@@ -94,9 +108,6 @@ export class AddUserComponent implements OnInit {
      ],
      'Nci':[
       {type:'required', message:'Champ nci obligatoire '}
-     ],
-     'Entreprise':[
-      {type:'required', message:'Champ entreprise obligatoire '}
      ]
   }
 }

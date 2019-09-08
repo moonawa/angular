@@ -14,7 +14,7 @@ import { AuthService } from './auth.service';
 import { EntrepriseService } from './entreprise.service';
 import { UserComponent} from './user/user.component';
 
-import { AuthGuard} from './auth.guard';
+
 import { RegisterComponent } from './register/register.component';
 
 import { TokenInterceptorService } from './token-interceptor.service';
@@ -26,6 +26,11 @@ import { TransactionComponent } from './transaction/transaction.component';
 import { DepotComponent } from './depot/depot.component';
 import { FormsComponent } from './forms/forms.component';
 import { RetraitComponent } from './retrait/retrait.component';
+import { NavComponent } from './nav/nav.component';
+import { SuperAdminComponent } from './super-admin/super-admin.component';
+import { UserAdminComponent } from './user-admin/user-admin.component';
+import { CompteAdminComponent } from './compte-admin/compte-admin.component';
+import { UserCompteComponent } from './user-compte/user-compte.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +48,12 @@ import { RetraitComponent } from './retrait/retrait.component';
     TransactionComponent,
     DepotComponent,
     FormsComponent,
-    RetraitComponent
+    RetraitComponent,
+    NavComponent,
+    SuperAdminComponent,
+    UserAdminComponent,
+    CompteAdminComponent,
+    UserCompteComponent
   ],
   imports: [
     BrowserModule,

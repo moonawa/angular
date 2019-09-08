@@ -1,40 +1,39 @@
-<div class="row">
+<div class="container">
+        <app-nav></app-nav>      
     <div class="col-md-6 mx-auto">
         <div class="card rounded-0">
+
+
             <div class="card-header">
                 <h3 class="mb-0">Enregistrez un user</h3>
             </div>
             <form [formGroup]="user" (ngSubmit)="onsubmit(user.value)">                  
-                    <div class="form-group">                        
-                        <label for="Entreprise">Entreprise</label>
-                        <input type="number" name="Entreprise"  formControlName="Entreprise"  class="form-control" id="Entreprise">
-                        <div *ngFor="let error of errorMessage.Entreprise">
-                            <div *ngIf="user.get('Entreprise').hasError(error.type) &&
-                             (user.get('Entreprise').dirty || user.get('Entreprise').touched)">
+                  
+                    <div class="form-group row col-6 col-md-push-4 offset-md-3">
+                        <label for="Profil">Profil</label>
+                        <div class="col">
+                            <div *ngFor="let error of errorMessage.Profil">
+                            <div *ngIf="user.get('Profil').hasError(error.type) &&
+                                (user.get('Profil').dirty || user.get('Profil').touched)">
                                 {{error.message}}
                             </div>
+                        </div> 
+                        <select formControlName="Profil" name="Profil" class="form-control" ngDefaultControl >
+                            <option *ngFor="let P of Profils" value="{{P.id}}">{{P.Libelle}}</option>
+                        </select>
                         </div>
                     </div>
-                    <div class="form-group">                      
-                        <label for="Profil">Profil</label>    
-                        <input type="number" name="Profil"  formControlName="Profil" class="form-control"  id="Profil">
-                    </div>
-                    <div *ngFor="let error of errorMessage.Profil">
-                <div *ngIf="user.get('Profil').hasError(error.type) &&
-                 (user.get('Profil').dirty || user.get('Profil').touched)">
-                    {{error.message}}
-                </div>
-            </div>
+                  
                     <div class="form-group">             
                         <label for="username">username</label>
                         <input type="text" formControlName = "username"  name="username" class="form-control"  id="username">
                     </div>
                     <div *ngFor="let error of errorMessage.username">
-                <div *ngIf="user.get('username').hasError(error.type) &&
-                 (user.get('username').dirty || user.get('username').touched)">
-                    {{error.message}}
-                </div>
-            </div>
+                    <div *ngIf="user.get('username').hasError(error.type) &&
+                    (user.get('username').dirty || user.get('username').touched)">
+                        {{error.message}}
+                    </div>
+                    </div>
                     <div class="form-group">                       
                         <label for="plainPassword">Password</label>
                         <input type="password" name="plainPassword"  formControlName="plainPassword"  class="form-control" id="plainPassword">

@@ -14,15 +14,14 @@ export class UserService {
   
   constructor(private http: HttpClient,
     private _router: Router) { }
-    private _Url : string = "http://localhost:8000/api/list";
+    private _Url : string = "http://localhost:8000/api/listerprofil";
 
     
-    getAllProfil() : Observable<any[]>  {
-      return  this.http.get<any>(this._Url);
+   getAllProfil() : Observable<any[]>  {
+      return this.http.get<any>(this._Url, {headers:this.headers});
    }
    getUser(){
     return this.http.get<any>(this._userUrl, {headers:this.headers})
-
    }
       
    addUser(user, fileToUpload){
@@ -33,7 +32,6 @@ export class UserService {
      const formData: FormData= new FormData();
      formData.append('username', user.username);
      formData.append('plainPassword', user.plainPassword);
-     formData.append('Entreprise', user.Entreprise);
      formData.append('Nom', user.Nom);
      formData.append('Email', user.Email);
      formData.append('Telephone', user.Telephone);
@@ -78,9 +76,9 @@ export class UserService {
      formData.append('plainPassword', supera.plainPassword);
      formData.append('username', supera.username);
      formData.append('Nom', supera.Nom);
-     formData.append('Email', supera.Email);
+     formData.append('email', supera.email);
      formData.append('Nci', supera.Nci);
-     formData.append('Telephone', supera.Telephone);
+     formData.append('telephone', supera.telephone);
      formData.append('Solde', supera.Solde);
      formData.append('imageName', fileToUpload, fileToUpload.name);
      return this.http.post(host, formData, {headers : headers});

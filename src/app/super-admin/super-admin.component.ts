@@ -62,10 +62,10 @@ username: new FormControl ('', Validators.required),
 
 Nom: new FormControl ('', Validators.required),
 
-     Email: new FormControl ('', Validators.required),
+     email: new FormControl ('', Validators.required),
 
 Nci: new FormControl ('', Validators.required),
-Telephone:  new FormControl ('', [Validators.required, Validators.minLength(9),Validators.maxLength(9),Validators.pattern(
+telephone:  new FormControl ('', [Validators.required, Validators.minLength(9),Validators.maxLength(9),Validators.pattern(
   /^7[0678]([0-9][0-9][0-9][0-9][0-9][0-9][0-9])/)]),
 Solde: new FormControl ('', Validators.required)
 
@@ -97,13 +97,13 @@ Solde: new FormControl ('', Validators.required)
     'Nom':[
       {type:'required', message:'Champ email obligatoire '}
      ],
-     'Email':[
+     'email':[
       {type:'required', message:'Champ nci obligatoire '}
      ],
      'Nci':[
       {type:'required', message:'Champ entreprise obligatoire '}
      ],
-     'Telephone':[
+     'telephone':[
       {type:'required', message:'Champ entreprise obligatoire '}
      ],
      'Solde':[

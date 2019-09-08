@@ -4,18 +4,23 @@ import { EntrepriseComponent} from './entreprise/entreprise.component';
 import { UserComponent} from './user/user.component';
 import { LoginComponent} from './login/login.component';
 import { RegisterComponent} from './register/register.component';
-import { AuthGuard } from './auth.guard';
+
 import { AddUserComponent } from './add-user/add-user.component';
 import { AddEntrepriseComponent } from './add-entreprise/add-entreprise.component';
 import { TransactionComponent } from './transaction/transaction.component';
 import { DepotComponent } from './depot/depot.component';
 import { FormsComponent } from './forms/forms.component';
 import { RetraitComponent } from './retrait/retrait.component';
+import { SuperAdminComponent } from './super-admin/super-admin.component';
+import { NavComponent } from './nav/nav.component';
+import { UserAdminComponent } from './user-admin/user-admin.component';
+import { CompteAdminComponent } from './compte-admin/compte-admin.component';
+import { UserCompteComponent } from './user-compte/user-compte.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/entreprise',
+    redirectTo: '/login',
     pathMatch: 'full'
   },
   {
@@ -25,6 +30,18 @@ const routes: Routes = [
   {
     path: 'retrait',
     component: RetraitComponent
+  },
+  {
+    path: 'user-admin',
+    component: UserAdminComponent
+  },
+  {
+    path: 'compte-admin',
+    component: CompteAdminComponent
+  },
+  {
+    path: 'user-compte',
+    component: UserCompteComponent
   },
   {
     path: 'forms',
@@ -43,10 +60,10 @@ const routes: Routes = [
     component: AddEntrepriseComponent
   },
   {
-    path: 'user',
-    component: UserComponent,
-    canActivate: [AuthGuard]
+    path: 'super-admin',
+    component: SuperAdminComponent
   },
+  
   {
     path: 'login',
     component: LoginComponent
@@ -54,6 +71,14 @@ const routes: Routes = [
   {
     path: 'depot',
     component: DepotComponent
+  },
+  {
+    path: 'nav',
+    component: NavComponent
+  },
+  {
+    path: 'user',
+    component: UserComponent
   },
   {
     path: 'register',
