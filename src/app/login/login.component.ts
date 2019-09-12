@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
     private _router: Router) { }
 
   ngOnInit() {
+    this._auth.logoutUser()
   }
 
   loginUser(user){
@@ -27,7 +28,7 @@ export class LoginComponent implements OnInit {
         let jwt = res.body['token'];
         this._auth.saveToken(jwt);
         
-        this._router.navigate(['/add-user'])
+        this._router.navigate(['/nav'])
       },
       err =>{console.log(err)}
     )

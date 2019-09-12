@@ -38,17 +38,6 @@ export class EntrepriseService {
      return this.http.post(host, formData, {headers:headers});
    }
 
-   addDepot(depot){
-    const headers= new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
-
-    const host = "http://localhost:8000/api/depot/entreprise";
-  
-    const formData: FormData= new FormData();
-    formData.append('RaisonSociale', depot.Montant);
-    formData.append('Entreprise', depot.Entreprise);
-    return this.http.post(host, formData, {headers:headers});
-
-   }
 
  /*  errorHandler(error: HttpErrorResponse){
     return Observable.throw(error.message || "Server Error");

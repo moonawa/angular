@@ -15,14 +15,39 @@ export class UserService {
   constructor(private http: HttpClient,
     private _router: Router) { }
     private _Url : string = "http://localhost:8000/api/listerprofil";
+    private _Depot :  string = "http://localhost:8000/api/listercomptes";
+    private _compte :  string = "http://localhost:8000/api/recherchecompte";
+
 
     
    getAllProfil() : Observable<any[]>  {
       return this.http.get<any>(this._Url, {headers:this.headers});
    }
+
+   getAllCompte() : Observable<any[]>  {
+    return this.http.get<any>(this._Depot, {headers:this.headers});
+ }
+ getAllNocompte(data) : Observable<any[]>{
+  return this.http.post<any>(this._compte,data,{headers:this.headers});
+}
+
+
+ addDepot(depot){
+  const headers= new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
+
+  const host = "http://localhost:8000/api/depot/entreprise";
+
+  const formData: FormData= new FormData();
+  formData.append('Montant', depot.Montant);
+  formData.append('compte', depot.compte);
+  return this.http.post(host, formData, {headers:headers});
+
+ }
    getUser(){
     return this.http.get<any>(this._userUrl, {headers:this.headers})
    }
+
+
       
    addUser(user, fileToUpload){
     const headers= new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
